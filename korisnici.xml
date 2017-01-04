@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+<user><name>Selsebil</name>
+<mail>selsebilcatic@gmail.com</mail>
+<username>username1</username>
+<password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+</user>
+<user>
+<name>Amela</name>
+<mail>amela@gmail.com</mail>
+<username>spajz</username>
+<password>1a1dc91c907325c69271ddf0c944bc72</password>
+</user>
+<user>
+<name>Teeest</name>
+<mail>test@gmail.com</mail>
+<username>test</username>
+<password>101a6ec9f938885df0a44f20458d2eb4</password>
+</user>
+</users>
