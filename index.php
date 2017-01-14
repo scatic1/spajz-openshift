@@ -51,12 +51,33 @@ $output='';
 	
 		$pretraga = htmlEntities($_POST['text'], ENT_QUOTES);
 		
-		$kontakti=simplexml_load_file('korisnici.xml');
-	foreach($kontakti->user as $kontakt){
-		
-		$imee=$kontakt->name;
+		//$kontakti=simplexml_load_file('korisnici.xml');
+	//foreach($kontakti->user as $kontakt){
+		 $hostname = "localhost";
+$username = "selsebiil";
+$password = "wt";
+$databaseName = "spajz";
 
-		$usernamee=$kontakt->username;
+// connect to mysql database
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+// mysql select query
+$query = "SELECT * FROM `korisnici`";
+
+// for method 1
+
+$result = mysqli_query($connect, $query);
+	   
+	   
+	   
+
+
+	  while($row = mysqli_fetch_array( $result )) {
+		
+		$imee=$row['ime'];
+
+		$usernamee=$row['username'];;
 	
 		
 		if($pretraga=='')
@@ -69,6 +90,7 @@ $output='';
 			$output.='<div>'.$imee.' '.$usernamee.'<div>';
 		}
 	}
+	
 }
 ?>
 

@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="Naslovna.css"> 
 	
 	<link rel="stylesheet" type="text/css" href="Proizvodi.css">
-
+<link rel="stylesheet" type="text/css" href="Kontakt.css">
 	
 	<script type="text/javascript" src="js/validacijaKontakt.js"></script>
 	<script type="text/javascript" src="js/validacijaPrijava.js"></script>
@@ -19,7 +19,74 @@
 	
 </HEAD>
 <BODY> <script type="text/javascript" src="js/funkcija.js"></script>
+<?php
 
+
+if(isset($_POST['kom'])){
+	$servername = "localhost";
+$username = "selsebiil";
+$password = "wt";
+$dbname = "spajz";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+ 
+
+  $komentar = $_POST['por'];
+   $opcija = $_POST['opcija'];
+  
+$sql = "INSERT INTO komentar (proizvod,komentar)
+VALUES ('$opcija', '$komentar')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+	header('location: Proizvodi.php');
+}
+	
+
+
+?>
+<?php
+
+// php select option value from database
+
+$hostname = "localhost";
+$username = "selsebiil";
+$password = "wt";
+$databaseName = "spajz";
+
+// connect to mysql database
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+// mysql select query
+$query = "SELECT * FROM `proizvod`";
+
+// for method 1
+
+$result1 = mysqli_query($connect, $query);
+
+// for method 2
+
+$result2 = mysqli_query($connect, $query);
+
+$options = "";
+
+while($row2 = mysqli_fetch_array($result2))
+{
+    $options = $options."<option>$row2[1]</option>";
+}
+
+?>
 
 <!--Logo Meni-->
 <div class="zaglavlje">
@@ -86,23 +153,78 @@
 
 	   
 	   <?php 
-	   $products=simplexml_load_file('proizvodi.xml');
-	   foreach ($products->product as $product){ ?>
+	   
+	   $hostname = "localhost";
+$username = "selsebiil";
+$password = "wt";
+$databaseName = "spajz";
+
+// connect to mysql database
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+// mysql select query
+$query = "SELECT * FROM `proizvod`";
+
+// for method 1
+
+$result = mysqli_query($connect, $query);
+	   
+	   
+	   
+
+
+	  while($row = mysqli_fetch_array( $result )) {
+
 		   
 		      
 			   
 			   
-			   <?php echo '<img style="width:50%"src="'.$product->url.'" alt="Slika" />';?>
-			  <?php echo '<p>'.$product->name.'';?>
-			  <?php echo '<br><br><br>'; ?>
+			   echo '<img style="width:50%"src="'.$row['slika'].'" alt="Slika" />';
+			   echo '<p>'.$row['ime'].'';
+			  echo '<br><br><br>';
 			  
 		   
-		   <?php } ?>
+		   } ?>
 
 		
 		
 	</div>
+	
+<div class="forma">
 
+<h2>Komentar</h2>
+	
+	<form class="form" id="forma" method="post" >
+		
+		<p class="name">
+		<label id="kom" for="name">Proizvod:</label>
+			<!--<input type="text" name="name" id="name"   >-->
+			  <select name="opcija">
+
+            <?php while($row1 = mysqli_fetch_array($result1)):;?>
+
+            <option  value="<?php echo $row1[0];?>"><?php echo $row1[2];?></option>
+
+            <?php endwhile;?>
+
+        </select>
+			
+		</p>
+		
+			
+	
+		<p class="text">
+			<textarea name="por" id="poruka" placeholder="Napišite komentar!" ></textarea>
+			<label id="komporuka" for="poruka"></label>
+		</p>
+		
+		<p class="submit">
+			<input type="submit" name="kom" id="submit" value="Pošalji"  >
+			<label id="komsubmit" for="submit"></label>
+		</p>
+	</form>
+</div>
 <!--
 
 <div class="slike">

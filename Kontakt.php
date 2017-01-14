@@ -79,8 +79,48 @@
 	</div>		
 </section>
 
+<!--dodaje u bazu-->
 <?php
 
+if(isset($_POST['submitPosalji'])){
+	$servername = "localhost";
+$username = "selsebiil";
+$password = "wt";
+$dbname = "spajz";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+ $name = $_POST['name'];
+  $email = $_POST['email'];
+   $text = $_POST['text'];
+$url = $_POST['url'];  
+$sql = "INSERT INTO poruka (ime,email,poruka)
+VALUES ('$name', '$email', '$text')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+	
+		
+          
+	header('location: Kontakt.php');
+	
+	
+}
+?>
+
+
+<!--dodaje u xml-->
+<?php
+/*
 if(isset($_POST['submitPosalji'])){
 	//sačuva u xml
 	$messages=simplexml_load_file('poruke.xml');
@@ -99,7 +139,7 @@ if(isset($_POST['submitPosalji'])){
 	
 }
  
-
+*/
 ?>
 
 <!--Kontakt-->

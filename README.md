@@ -5,6 +5,7 @@
 
 <p>3. Napravljen je pdf fajl, u kome se nalaze sve poruke koji korisnici šalju u vidu kontakt forme.</p>
 <p>4. Napravljena je pretraga registrovanih korisnika po imenu ili username-u.</p>
+<p>5. Deployment stranice http://spajz-my-spajz.44fs.preview.openshiftapps.com/ </p>
 <br>
 
 <h3>II-Šta nije urađeno?</h3>

@@ -74,17 +74,42 @@
 			$error = '';
 			$proslo = false;
 			$postavljena = false;
+			
+			   $hostname = "localhost";
+$username = "selsebiil";
+$password = "wt";
+$databaseName = "spajz";
+
+// connect to mysql database
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+// mysql select query
+$query = "SELECT * FROM `administrator`";
+
+// for method 1
+
+$result = mysqli_query($connect, $query);
+	   
+	   
+	   
+
+
+	 
+
+			
+			
 			if (isset($_POST['submit1']) && !empty($_POST['Username']) && !empty($_POST['Password'])) 
 			{
 				$user1 = $_POST['Username'];
 				$pass = $_POST['Password'];
-			$users=simplexml_load_file('login.xml');
 			
+			
+			 while($row = mysqli_fetch_array( $result )) {	
 				
-				foreach($users->user as $user) {
 					
-					$userr=$user->username;
-					$passs=$user->password;
+					$userr=$row['username'];
+					$passs=$row['password'];
 					if($userr == $user1 && $passs==md5($pass)) {
 						$_SESSION['login'] = true;
 						$error="";
@@ -165,8 +190,50 @@
 	
 	</div>
 </div>
+<!--dodaje u bazu-->
 <?php
 
+if(isset($_POST['submitRegistruj'])){
+	$servername = "localhost";
+$username = "selsebiil";
+$password = "wt";
+$dbname = "spajz";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+ $name = $_POST['name1'];
+  $email = $_POST['mail1'];
+    $username = $_POST['username1'];
+	  $password = md5($_POST['password1']);
+$url = $_POST['url'];  
+$sql = "INSERT INTO korisnici (ime,email,username,password)
+VALUES ('$name', '$email', '$username','$password')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+	
+	
+		
+          
+	header('location: Prijava.php');
+	
+	
+}
+?>
+
+
+<!--dodaje u xml-->
+<?php
+/*
 if(isset($_POST['submitRegistruj'])){
 	//sačuva u xml
 	$users=simplexml_load_file('korisnici.xml');
@@ -184,7 +251,7 @@ if(isset($_POST['submitRegistruj'])){
 	header('location: Prijava.php');
 	
 	
-}
+}*/
 ?>
 <div class="registracija">
 <h2>Registruj se</h2>

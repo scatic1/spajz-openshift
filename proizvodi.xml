@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <products>
-    <product id="1">
+    <product >
 	<name>Badem</name>
 	<price>2.5</price>
 	<url>http://advent.hr/upload/catalog/variation/87/badem-jezgra-100g-primavita_570771308a757.jpg</url>
 	</product>
-	<product id="2">
+	<product >
 	<name>Tip Top</name>
 	<price>1</price>
 	<url>http://www.konzumshop.ba/images/products/066/06603001l.gif</url>

@@ -30,7 +30,7 @@
 	             
 				
 				          
-					<a href='index.php' TARGET='_self'>Naslovna</a>
+					<a href='Naslovna.php' TARGET='_self'>Naslovna</a>
                        	 <a href='ONama.php' TARGET='_self'>O nama</a>
                        	 <a href='Proizvodi.php' TARGET='_self'>Proizvodi</a>
                        	 <a href='Kontakt.php' TARGET='_self'>Kontakt</a>
@@ -47,7 +47,7 @@
 	             
 				
 				          
-					<a href='index.php' TARGET='_self'>Naslovna</a>
+					<a href='Naslovna.php' TARGET='_self'>Naslovna</a>
                        	 <a href='ONama.php' TARGET='_self'>O nama</a>
                        	 <a href='Proizvodi.php' TARGET='_self'>Proizvodi</a>
                        	 <a href='Kontakt.php' TARGET='_self'>Kontakt</a>
@@ -76,7 +76,10 @@
 		</div>
 	</div>		
 </section>
+
+<!--dodaje u xml-->
 <?php
+/*
 
 if(isset($_POST['submitSacuvaj'])){
 	//sačuva u xml
@@ -91,6 +94,43 @@ if(isset($_POST['submitSacuvaj'])){
 	
 		
           
+	header('location: DodajProizvod.php');
+	
+	
+}
+ 
+*/
+?>
+
+<!--dodaje u bazu-->
+<?php
+
+
+if(isset($_POST['submitSacuvaj'])){
+	$servername = "localhost";
+$username = "selsebiil";
+$password = "wt";
+$dbname = "spajz";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+ $name = $_POST['name'];
+  $price = $_POST['price'];
+$url = $_POST['url'];  
+$sql = "INSERT INTO proizvod (administrator,ime,cijena,slika)
+VALUES ('1','$name', '$price', '$url')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
 	header('location: DodajProizvod.php');
 	
 	

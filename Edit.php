@@ -1,4 +1,7 @@
-
+<?php 
+ $link=mysqli_connect("localhost","selsebiil","wt");
+ mysqli_select_db($link,"spajz");
+ ?>
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
@@ -79,7 +82,9 @@
 		</div>
 	</div>		
 </section>
+
 <?php
+/*
 $products=simplexml_load_file('proizvodi.xml');
 if(isset($_POST['submitSacuvaj'])){
 	foreach($products->product as $product){
@@ -107,26 +112,44 @@ foreach($products->product as $product){
 		break;
 	}
 	
+}*/
+?>
+
+<?php
+
+if(isset($_GET['id']))
+{
+$id=$_GET['id'];}
+if(isset($_POST['submitSacuvaj'])){
+	$name=$_POST['name'];
+$price=$_POST['price'];
+$url=$_POST['url'];	
+$query3=mysqli_query($link,"update proizvod set ime='$name', cijena='$price',slika='$url' where id='$id'");
+	if($query3)
+{
+	header('location: DodajProizvod.php');
 }
+}
+$query1=mysqli_query($link,"select * from proizvod where id='$id'");
+$query2=mysqli_fetch_array($query1);
 ?>
 
 <form class="formaDodaj"method="post">
     <table style="border-collapse:collapse" align="center" cellpading="2" cellspacing="2">
 	   <tr>
-	         <td><p>Id</p></td>
-			 <td><input type="text" name="id" value="<?php echo $id; ?>"></td>
+	         
 	   </tr>
 	   <tr>
 	         <td><p>Ime</p></td>
-			 <td><input type="text" name="name" value="<?php echo $name; ?>"></td>
+			 <td><input type="text" name="name" value="<?php echo $query2["ime"]; ?>"></td>
 	   </tr>
 	   <tr>
 	         <td><p>Cijena</p></td>
-			 <td><input type="text" name="price" value="<?php echo $price; ?>"></td>
+			 <td><input type="text" name="price" value="<?php echo $query2["cijena"]; ?>"></td>
 	   </tr>
 	   <tr>
 	         <td><p>Slika</p></td>
-			 <td><input type="text" name="url" value="<?php echo $url; ?>"></td>
+			 <td><input type="text" name="url" value="<?php echo $query2["slika"]; ?>"></td>
 	   </tr>
 	    <tr>
 	         <td>&nbsp;</td>
