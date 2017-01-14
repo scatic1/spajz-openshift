@@ -1,0 +1,198 @@
+
+.slike{width:100%; background-color:#DE7C7C;padding-top:20px;text-align:center; }
+.formaa{border:1px solid hidden;
+	background-color:#DE7C7C;
+	padding-left:20px;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.formaa label{
+	padding-top:30px;
+	padding-left:20px;
+	color:white;
+}
+#aa{text-align:center;}
+
+th {
+    background-color: #DE7C7C;
+    color: white;
+}
+
+.formaDodaj{background-color:#DE7C7C;}
+#dugme{padding-left:20px;}
+.forma button{width: 100px; 
+	height: 40px;
+	background-color: #474E69; 
+	color: white;}
+.slika1{background-color:#DE7C7C;
+
+	
+	width:50%;
+	height:auto;}
+.slika2{background-color:#DE7C7C;
+padding-top:20px;
+padding-bottom:5px;
+	
+	float:left;
+	width:33.33%;
+	height:300px;}
+.slika3{background-color:#DE7C7C;
+padding-top:20px;
+padding-bottom:5px;
+	
+	float:left;
+	width:33.33%;
+	height:300px;}
+	
+.slika4{background-color:#DE7C7C;
+padding-top:20px;
+
+	
+	float:left;
+	width:33.33%;
+	height:300px;}
+.slika5{background-color:#DE7C7C;
+
+padding-top:20px;
+	
+	float:left;
+	width:33.33%;
+	height:300px;}
+.slika6{background-color:#DE7C7C;
+padding-top:20px;
+	
+	float:left;
+	width:33.33%;
+	height:300px;}
+.slika1 img{width:50%; max-width:100%;}
+.slika2 img{border:1px hidden;width:60%; max-width:100%;}
+.slika3 img{border:1px hidden;width:45%; max-width:100%;}
+.slika4 img{border:1px hidden;width:45%; max-width:100%;}
+.slika5 img{border:1px hidden;width:60%; max-width:100%;}
+.slika6 img{border:1px hidden;width:45%; max-width:100%;}
+ 
+ #velikaSlika {
+	 border:1px solid black;
+                text-align: center;
+                display:none;
+				
+                position: fixed;
+               
+                top: 0; left:0;right:0; width: 100%; height: 100%;
+				max-width:1350px;
+				max-height:1211px;
+				margin:0 auto;
+                background-color: rgba(100,100,100, 0.7);
+            }
+	#velikaslika  {
+		text-align:center;
+border:none;
+    height: 100%;
+	 max-width:100%;
+	
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+img{display: block;
+    margin: 0 auto;
+	size:fixed;}
+	.slike p{color:white;
+	font-family:Calibri;
+	font-style:italic;
+	font-size:25px;}
+	@media screen and (max-width:968px) {
+  .slika1{width:100%; height:300px;}
+  .slika2{width:50%;height:300px;}
+  .slika3{width:50%;height:300px;}
+  .slika4{width:50%;height:300px;padding-bottom:5px;}
+   .slika5{width:50%;height:300px;}
+  .slika6{width:50%;height:300px;}
+  
+
+}
+span.bord {
+     /*text-align: center;*/
+	 top:0;
+	 left:0;
+	 right:0;
+	 bottom:0;
+}
+img:hover{
+	border:1px solid #DE7C7C; 
+	cursor:pointer;
+}
+@media screen and (max-device-width:968px) {
+  .slika1{width:100%; height:300px;}
+  .slika2{width:50%;height:300px;}
+  .slika3{width:50%;height:300px;}
+  .slika4{width:50%;height:300px;padding-bottom:5px;}
+   .slika5{width:50%;height:300px;}
+  .slika6{width:50%;height:300px;}
+  
+
+}
+	@media screen and (max-width:768px) {
+  .slika1{width:100%; height:auto;}
+  .slika2{width:100%;height:auto;}
+  .slika3{width:100%;height:auto;}
+  .slika4{width:100%;height:auto;}
+   .slika5{width:100%;height:auto;}
+  .slika6{width:100%;height:auto;}
+
+
+
+}
+@media screen and (max-device-width:768px) {
+  .slika1{width:100%; height:auto;}
+  .slika2{width:100%;height:auto;}
+  .slika3{width:100%;height:auto;}
+  .slika4{width:100%;height:auto;}
+   .slika5{width:100%;height:auto;}
+  .slika6{width:100%;height:auto;}
+  
+
+}
+@media screen and (max-width:500px) {
+  .slika1{width:100%; height:auto;}
+  .slika2{width:100%;height:auto;}
+  .slika3{width:100%;height:auto;}
+  .slika4{width:100%;height:auto;}
+   .slika5{width:100%;height:auto;}
+  .slika6{width:100%;height:auto;}
+  #velikaslika  {
+		position:absolute;
+		
+
+     height:auto;
+	 width:100%;
+	
+}
+@media screen and (max-device-width:500px) {
+  .slika1{width:100%; height:auto;}
+  .slika2{width:100%;height:auto;}
+  .slika3{width:100%;height:auto;}
+  .slika4{width:100%;height:auto;}
+   .slika5{width:100%;height:auto;}
+  .slika6{width:100%;height:auto;}
+  #velikaslika  {
+		position:absolute;
+		top:20%;
+
+     height:auto;
+	 width:100%;
+	
+}
